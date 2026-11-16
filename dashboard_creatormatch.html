@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CreatorMatch AI — Conexão Inteligente E-commerce & Criadores</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+    .glass-card { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.05); }
+    .gradient-text { background: linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  </style>
+</head>
+<body class="bg-[#090d16] text-slate-100 min-h-screen antialiased selection:bg-purple-500 selection:text-white">
+
+  <!-- Top Navigation Bar -->
+  <header class="border-b border-slate-800/80 sticky top-0 z-40 bg-[#090d16]/90 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-blue-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
+          <i class="fa-solid fa-wand-magic-sparkles text-white text-lg"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-bold text-xl tracking-tight text-white">CreatorMatch<span class="gradient-text font-black">AI</span></span>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 font-medium">v1.2 Beta</span>
+          </div>
+          <p class="text-xs text-slate-400">Matchmaking Algorítmico & Gestão de Campanhas</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300">
+          <i class="fa-solid fa-store text-purple-400"></i>
+          <span class="text-slate-400">Loja Ativa:</span>
+          <span class="font-semibold text-white">Mix Variedades (E-commerce)</span>
+        </div>
+
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Motor IA Ativo
+        </div>
+
+        <button class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-semibold px-4 py-2.5 rounded-xl shadow-md shadow-purple-500/20 transition-all flex items-center gap-2">
+          <i class="fa-solid fa-plus text-[10px]"></i> Novo Produto
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-8 space-y-8">
+
+    <!-- Active Product Card (Selector) -->
+    <section class="glass rounded-2xl p-6 relative overflow-hidden">
+      <div class="absolute -right-20 -top-20 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+        <div class="flex items-center gap-6">
+          <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-pink-500/20 to-purple-600/20 border border-pink-500/30 flex items-center justify-center p-3 text-pink-400 text-3xl shadow-inner">
+            <i class="fa-solid fa-spray-can-sparkles"></i>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2.5">
+              <span class="px-2 py-0.5 rounded bg-pink-500/10 text-pink-300 border border-pink-500/20 text-[11px] font-semibold uppercase tracking-wider">Produto P1 Ativo</span>
+              <span class="text-xs text-slate-400">SKU: MV-GLOSS-001</span>
+            </div>
+            <h2 class="text-2xl font-bold text-white tracking-tight">Gloss Labial Efeito Volume (3D Hydrate)</h2>
+            <div class="flex flex-wrap items-center gap-4 text-xs text-slate-300 pt-1">
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-tag text-purple-400"></i> Preço: <strong class="text-white font-semibold">R$ 29,90</strong></span>
+              <span class="text-slate-600">•</span>
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-users text-blue-400"></i> Público: <strong class="text-white font-semibold">Mulheres 18–32 anos</strong></span>
+              <span class="text-slate-600">•</span>
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-bullseye text-emerald-400"></i> Meta: <strong class="text-white font-semibold">Conversão rápida & Teste de Textura</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Switcher Buttons -->
+        <div class="flex flex-col gap-2 w-full lg:w-auto">
+          <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Alternar Produto para Match:</span>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            <button class="px-3 py-2 rounded-xl bg-purple-600/20 border border-purple-500/40 text-purple-300 text-xs font-medium text-left">
+              1. Gloss Volume ✨
+            </button>
+            <button class="px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-400 text-xs font-medium text-left transition-all">
+              2. Organizador 360°
+            </button>
+            <button class="px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-400 text-xs font-medium text-left transition-all">
+              3. Ring Light Clip
+            </button>
+            <button class="px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-400 text-xs font-medium text-left transition-all">
+              4. Fone TWS Gamer
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics Summary Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="glass-card rounded-2xl p-5 border-l-4 border-l-purple-500">
+        <span class="text-xs text-slate-400 font-medium">Criadores Analisados</span>
+        <div class="text-2xl font-bold text-white mt-1">10 Perfis</div>
+        <p class="text-[11px] text-slate-500 mt-1">Auditoria demográfica completa</p>
+      </div>
+      <div class="glass-card rounded-2xl p-5 border-l-4 border-l-emerald-500">
+        <span class="text-xs text-slate-400 font-medium">Aprovados no Gate</span>
+        <div class="text-2xl font-bold text-emerald-400 mt-1">3 Criadores</div>
+        <p class="text-[11px] text-emerald-500/80 mt-1">Zero risco de desalinhamento</p>
+      </div>
+      <div class="glass-card rounded-2xl p-5 border-l-4 border-l-rose-500">
+        <span class="text-xs text-slate-400 font-medium">Reprovados / Barrados</span>
+        <div class="text-2xl font-bold text-rose-400 mt-1">2 Eliminados</div>
+        <p class="text-[11px] text-rose-500/80 mt-1">Incompatibilidade editorial/nicho</p>
+      </div>
+      <div class="glass-card rounded-2xl p-5 border-l-4 border-l-blue-500">
+        <span class="text-xs text-slate-400 font-medium">Score Médio Aprovados</span>
+        <div class="text-2xl font-bold text-blue-400 mt-1">90.0 / 100</div>
+        <p class="text-[11px] text-slate-500 mt-1">Matriz determinística de 6 eixos</p>
+      </div>
+    </div>
+
+    <!-- Main Table: Creator Match Ranking -->
+    <section class="glass-card rounded-2xl overflow-hidden border border-slate-800">
+      <div class="p-6 border-b border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <h3 class="text-lg font-bold text-white">Ranking de Compatibilidade & Auditoria</h3>
+          <p class="text-xs text-slate-400">Classificação com base na matriz de 100 pontos e filtros eliminatórios de segurança</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-xs px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-400">
+            Filtro: <strong class="text-white">P1 (Gloss Labial)</strong>
+          </span>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm text-slate-300">
+          <thead class="bg-slate-950/60 text-xs uppercase tracking-wider text-slate-400 border-b border-slate-800/80">
+            <tr>
+              <th class="py-4 px-6">Criador / Referência</th>
+              <th class="py-4 px-6">Nicho Editorial</th>
+              <th class="py-4 px-6">Audiência & Demografia</th>
+              <th class="py-4 px-6">Score (100 pts)</th>
+              <th class="py-4 px-6">Status / Veredito</th>
+              <th class="py-4 px-6 text-right">Ação</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/60 font-normal">
+            
+            <!-- Row 1: Joyce Kitamura (Aprovada) -->
+            <tr class="hover:bg-slate-800/20 transition-colors">
+              <td class="py-4 px-6">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center font-bold text-white shadow-md">
+                    JK
+                  </div>
+                  <div>
+                    <div class="font-bold text-white flex items-center gap-1.5">
+                      Joyce Kitamura 
+                      <i class="fa-solid fa-circle-check text-blue-400 text-xs" title="Perfil Verificado"></i>
+                    </div>
+                    <span class="text-xs text-slate-400">@joycekitamura (~600k seguidores)</span>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-6">
+                <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20 text-xs font-medium">Beleza & Skincare</span>
+              </td>
+              <td class="py-4 px-6">
+                <div class="text-xs">
+                  <span class="font-semibold text-slate-200">88% Feminino</span> • 20–35 anos
+                  <div class="text-[11px] text-slate-400">Resenha sincera de textura</div>
+                </div>
+              </td>
+              <td class="py-4 px-6">
+                <div class="flex items-center gap-3">
+                  <span class="font-black text-emerald-400 text-base">95</span>
+                  <div class="w-20 bg-slate-800 rounded-full h-2 overflow-hidden">
+                    <div class="bg-gradient-to-r from-emerald-500 to-teal-400 h-2 rounded-full" style="width: 95%"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-6">
+                <span class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold flex items-center gap-1.5 w-max">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Match de Autoridade
+                </span>
+              </td>
+              <td class="py-4 px-6 text-right">
+                <button onclick="openModal()" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-semibold shadow-md shadow-purple-500/20 transition-all">
+                  Ver Campanha <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+              </td>
+            </tr>
+
+            <!-- Row 2: Camila Pudim (Aprovada) -->
+            <tr class="hover:bg-slate-800/20 transition-colors">
+              <td class="py-4 px-6">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-pink-500 to-rose-500 flex items-center justify-center font-bold text-white shadow-md">
+                    CP
+                  </div>
+                  <div>
+                    <div class="font-bold text-white flex items-center gap-1.5">
+                      Camila Pudim
+                      <i class="fa-solid fa-circle-check text-blue-400 text-xs"></i>
+                    </div>
+                    <span class="text-xs text-slate-400">@camilapudim (~4.5M seguidores)</span>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-6">
+                <span class="px-2.5 py-1 rounded-md bg-pink-500/10 text-pink-300 border border-pink-500/20 text-xs font-medium">Trends & Makes</span>
+              </td>
+              <td class="py-4 px-6">
+                <div class="text-xs">
+                  <span class="font-semibold text-slate-200">75% Feminino</span> • 16–28 anos
+                  <div class="text-[11px] text-slate-400">Alto alcance em Reels/Shorts</div>
+                </div>
+              </td>
+              <td class="py-4 px-6">
+                <div class="flex items-center gap-3">
+                  <span class="font-black text-emerald-400 text-base">88</span>
+                  <div class="w-20 bg-slate-800 rounded-full h-2 overflow-hidden">
+                    <div class="bg-gradient-to-r from-emerald-500 to-teal-400 h-2 rounded-full" style="width: 88%"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-6">
+                <span class="px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-300 text-xs font-semibold flex items-center gap-1.5 w-max">
+                  <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span> Match Viral
+                </span>
+              </td>
+              <td class="py-4 px-6 text-right">
+                <button onclick="openModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition-all">
+                  Ver Campanha <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+              </td>
+            </tr>
+
+            <!-- Row 3: Amanda Looks (Aprovada) -->
+            <tr class="hover:bg-slate-800/20 transition-colors">
+              <td class="py-4 px-6">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 to-orange-500 flex items-center justify-center font-bold text-white shadow-md">
+                    AL
+                  </div>
+                  <div>
+                    <div class="font-bold text-white">Amanda Looks</div>
+                    <span class="text-xs text-slate-400">@amandalooks (27k seguidores)</span>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-6">
+                <span class="px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-300 border border-amber-500/20 text-xs font-medium">Achadinhos & Moda</span>
+              </td>
+              <td class="py-4 px-6">
+                <div class="text-xs">
+                  <span class="font-semibold text-slate-200">88% Feminino</span> • 18–35 anos
+                  <div class="text-[11px] text-slate-400">Público focado em preço baixo</div>
+                </div>
+              </td>
+              <td class="py-4 px-6">
+                <div class="flex items-center gap-3">
+                  <span class="font-black text-emerald-400 text-base">87</span>
+                  <div class="w-20 bg-slate-800 rounded-full h-2 overflow-hidden">
+                    <div class="bg-gradient-to-r from-emerald-500 to-teal-400 h-2 rounded-full" style="width: 87%"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-6">
+                <span class="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-xs font-semibold flex items-center gap-1.5 w-max">
+                  <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span> Match Comercial
+                </span>
+              </td>
+              <td class="py-4 px-6 text-right">
+                <button onclick="openModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition-all">
+                  Ver Campanha <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+              </td>
+            </tr>
+
+            <!-- Row 4: Nath Finanças (REPROVADA) -->
+            <tr class="hover:bg-slate-800/20 transition-colors opacity-75 bg-rose-950/10">
+              <td class="py-4 px-6">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center font-bold text-slate-400">
+                    NF
+                  </div>
+                  <div>
+                    <div class="font-bold text-slate-300">Nath Finanças</div>
+                    <span class="text-xs text-slate-500">@nathfinancas (~550k)</span>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-6">
+                <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-400 text-xs font-medium">Finanças Reais</span>
+              </td>
+              <td class="py-4 px-6">
+                <div class="text-xs text-slate-400">
+                  70% Feminino • 25–34 anos
+                  <div class="text-[11px] text-rose-400">Foco em combate a compras supérfluas</div>
+                </div>
+              </td>
+              <td class="py-4 px-6">
+                <span class="text-xs text-rose-400 font-bold">Bloqueado</span>
+              </td>
+              <td class="py-4 px-6">
+                <span class="px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs font-semibold flex items-center gap-1.5 w-max">
+                  <i class="fa-solid fa-triangle-exclamation text-xs"></i> Risco / Conflito Editorial
+                </span>
+              </td>
+              <td class="py-4 px-6 text-right">
+                <span class="text-xs text-slate-500 italic">Descarte Automático</span>
+              </td>
+            </tr>
+
+            <!-- Row 5: Casimiro (REPROVADO) -->
+            <tr class="hover:bg-slate-800/20 transition-colors opacity-75 bg-rose-950/10">
+              <td class="py-4 px-6">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center font-bold text-slate-400">
+                    CM
+                  </div>
+                  <div>
+                    <div class="font-bold text-slate-300">Casimiro Miguel</div>
+                    <span class="text-xs text-slate-500">@casimiro (>4M)</span>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-6">
+                <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-400 text-xs font-medium">Futebol & Games</span>
+              </td>
+              <td class="py-4 px-6">
+                <div class="text-xs text-slate-400">
+                  >75% Masculino • 18–34 anos
+                  <div class="text-[11px] text-rose-400">Incompatível com nicho de cosméticos</div>
+                </div>
+              </td>
+              <td class="py-4 px-6">
+                <span class="text-xs text-rose-400 font-bold">Bloqueado</span>
+              </td>
+              <td class="py-4 px-6">
+                <span class="px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs font-semibold flex items-center gap-1.5 w-max">
+                  <i class="fa-solid fa-ban text-xs"></i> Gate Demográfico (< 15 pts)
+                </span>
+              </td>
+              <td class="py-4 px-6 text-right">
+                <span class="text-xs text-slate-500 italic">Descarte Automático</span>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Campaign Modal (Joyce Kitamura) -->
+  <div id="campaignModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="glass-card bg-[#0d1321] border border-slate-700 w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
+      
+      <!-- Modal Header -->
+      <div class="p-6 border-b border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center font-bold text-white text-lg">
+            JK
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="text-xl font-bold text-white">Pacote de Campanha: Joyce Kitamura</h3>
+              <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold">Score 95/100</span>
+            </div>
+            <p class="text-xs text-slate-400">Produto: Gloss Labial Efeito Volume (R$ 29,90) • Mix Variedades</p>
+          </div>
+        </div>
+
+        <button onclick="closeModal()" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition-colors">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+      </div>
+
+      <!-- Tab Navigation -->
+      <div class="flex border-b border-slate-800 px-6 gap-6 text-xs font-semibold">
+        <button onclick="switchTab('tabScore')" id="btnScore" class="py-3 border-b-2 border-purple-500 text-purple-400 transition-colors">
+          1. Breakdown de Pontuação
+        </button>
+        <button onclick="switchTab('tabOutreach')" id="btnOutreach" class="py-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition-colors">
+          2. Outreach & Abordagem
+        </button>
+        <button onclick="switchTab('tabBriefing')" id="btnBriefing" class="py-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition-colors">
+          3. Menu Criativo (3 Roteiros)
+        </button>
+        <button onclick="switchTab('tabPerf')" id="btnPerf" class="py-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition-colors">
+          4. Performance & UTMs
+        </button>
+      </div>
+
+      <!-- Tab Content Area -->
+      <div class="p-6 max-h-[65vh] overflow-y-auto space-y-4">
+        
+        <!-- Tab 1: Score -->
+        <div id="tabScore" class="space-y-4">
+          <h4 class="text-sm font-bold text-slate-200">Matriz de Avaliação Determinística (100 Pontos)</h4>
+          <div class="grid grid-cols-2 gap-3 text-xs">
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex justify-between items-center">
+              <span>Afinidade Temática & Nicho (20 pts):</span>
+              <strong class="text-emerald-400 font-bold">20 / 20</strong>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex justify-between items-center">
+              <span>Compatibilidade Demográfica (20 pts):</span>
+              <strong class="text-emerald-400 font-bold">19 / 20</strong>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex justify-between items-center">
+              <span>Engajamento & Autenticidade (20 pts):</span>
+              <strong class="text-emerald-400 font-bold">18 / 20</strong>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex justify-between items-center">
+              <span>Capacidade de Produção (15 pts):</span>
+              <strong class="text-emerald-400 font-bold">15 / 15</strong>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex justify-between items-center">
+              <span>Potencial de Conversão (15 pts):</span>
+              <strong class="text-emerald-400 font-bold">13 / 15</strong>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex justify-between items-center">
+              <span>Viabilidade Comercial (10 pts):</span>
+              <strong class="text-emerald-400 font-bold">10 / 10</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Outreach -->
+        <div id="tabOutreach" class="space-y-4 hidden">
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs leading-relaxed space-y-3">
+            <div class="flex items-center justify-between text-slate-400 border-b border-slate-800 pb-2">
+              <span>Canal: <strong>Instagram Direct / E-mail de Assessoria</strong></span>
+              <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-copy"></i> Pronto para Envio</span>
+            </div>
+            <p class="text-slate-200">
+              "Oi Joyce, tudo bem? Acompanhamos como você prioriza a honestidade e a transparência ao testar cosméticos, especialmente ao mostrar textura, conforto e acabamento real nos lábios sem filtros de desfoque. Estamos com o lançamento do <strong>Gloss Labial Efeito Volume (R$ 29,90)</strong> na Mix Variedades e queremos muito sua avaliação sincera. Gostaríamos de enviar um kit para teste e apresentar uma proposta para um vídeo curto demonstrativo. Se fizer sentido para sua rotina, podemos te enviar mais detalhes por aqui?"
+            </p>
+          </div>
+        </div>
+
+        <!-- Tab 3: Briefing & 3 Scripts -->
+        <div id="tabBriefing" class="space-y-4 hidden text-xs">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div class="p-3.5 rounded-xl bg-slate-900 border border-purple-500/30 space-y-2">
+              <span class="px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 font-bold text-[10px] uppercase">Opção 1: Trend Viral</span>
+              <div class="font-bold text-white text-sm">Lip Combo de Gringa</div>
+              <p class="text-slate-300 text-[11px]">Contorno labial + aplicação do gloss demonstrando resultado de maquiagem de luxo por menos de R$ 30.</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+              <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 font-bold text-[10px] uppercase">Opção 2: Nativo Técnico</span>
+              <div class="font-bold text-white text-sm">Resenha Sincera de Textura</div>
+              <p class="text-slate-300 text-[11px]">Close no aplicador, teste de sensação não pegajosa e avaliação sincera de custo-benefício.</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+              <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-300 font-bold text-[10px] uppercase">Opção 3: Contextual</span>
+              <div class="font-bold text-white text-sm">Make de 5 Minutos</div>
+              <p class="text-slate-300 text-[11px]">Inserção fluida na rotina rápida de preparação sem cara de comercial isolado.</p>
+            </div>
+          </div>
+          
+          <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 text-[11px] space-y-1">
+            <strong class="text-slate-300 font-semibold">Do's & Don'ts de Compliance:</strong>
+            <p class="text-slate-400">• Obrigatório uso de #publi • Proibido alegar substituição de procedimento estético definitivo.</p>
+          </div>
+        </div>
+
+        <!-- Tab 4: Performance -->
+        <div id="tabPerf" class="space-y-4 hidden text-xs">
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+            <span class="text-slate-400 font-medium">Link Parametrizado (UTM):</span>
+            <div class="p-2 rounded bg-black/60 font-mono text-[11px] text-purple-300 break-all select-all">
+              mixvariedades.com.br/gloss-volume?utm_source=instagram&utm_medium=influencer&utm_campaign=lancamento_gloss&utm_content=joyce_kitamura
+            </div>
+            <div class="flex items-center justify-between pt-1">
+              <span>Cupom Exclusivo: <strong class="text-emerald-400 font-bold">JOYCE10</strong> (10% OFF)</span>
+              <span>ROAS Alvo: <strong class="text-white font-bold">&gt; 2.5x</strong></span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 text-center">
+            <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
+              <span class="text-[10px] text-slate-400">Hook Retention (3s)</span>
+              <div class="font-bold text-white text-sm mt-0.5">&gt; 55%</div>
+            </div>
+            <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
+              <span class="text-[10px] text-slate-400">CTR Link na Bio</span>
+              <div class="font-bold text-white text-sm mt-0.5">&gt; 2,5%</div>
+            </div>
+            <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
+              <span class="text-[10px] text-slate-400">Conversão Checkout</span>
+              <div class="font-bold text-white text-sm mt-0.5">&gt; 1,8%</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 bg-slate-950/60 border-t border-slate-800 flex justify-end gap-3">
+        <button onclick="closeModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-all">
+          Fechar
+        </button>
+        <button class="px-5 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-semibold shadow-md shadow-purple-500/20 transition-all flex items-center gap-1.5">
+          <i class="fa-solid fa-download text-xs"></i> Exportar Pacote PDF
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      const modal = document.getElementById('campaignModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('campaignModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function switchTab(tabId) {
+      const tabs = ['tabScore', 'tabOutreach', 'tabBriefing', 'tabPerf'];
+      const btns = ['btnScore', 'btnOutreach', 'btnBriefing', 'btnPerf'];
+
+      tabs.forEach(id => document.getElementById(id).classList.add('hidden'));
+      btns.forEach(id => {
+        const btn = document.getElementById(id);
+        btn.classList.remove('border-purple-500', 'text-purple-400');
+        btn.classList.add('border-transparent', 'text-slate-400');
+      });
+
+      document.getElementById(tabId).classList.remove('hidden');
+      const activeBtn = document.getElementById('btn' + tabId.replace('tab', ''));
+      activeBtn.classList.remove('border-transparent', 'text-slate-400');
+      activeBtn.classList.add('border-purple-500', 'text-purple-400');
+    }
+  </script>
+</body>
+</html>
