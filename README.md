@@ -1,5 +1,4 @@
-# creatormatch-ai
-Protótipo e artigo técnico sobre matchmaking entre e-commerce e criadores usando LLMs e regras determinísticas.
+
 # CreatorMatch AI — Conexão Inteligente entre E-commerce e Criadores com LLMs
 
 > **Projeto Hands-On & Artigo Técnico Aplicado**  
